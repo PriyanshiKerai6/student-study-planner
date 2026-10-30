@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan your study sessions, track tasks, and build consistent study habits with Student Study Planner.">
+  <title>StudyFlow — Student Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="StudyFlow home">
+        <span class="brand-mark">✦</span><span>studyflow<span class="brand-dot">.</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link active" href="#overview"><span>▦</span> Overview</a>
+        <a class="nav-link" href="#tasks"><span>✓</span> My tasks <span class="nav-count" id="navTaskCount">0</span></a>
+        <a class="nav-link" href="#schedule"><span>▤</span> Study schedule</a>
+        <a class="nav-link" href="#focus"><span>◷</span> Focus timer</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="quote-card">
+          <div class="quote-icon">✧</div>
+          <p class="quote">“Small steps every day add up to big results.”</p>
+          <span>YOUR DAILY REMINDER</span>
+        </div>
+        <button class="profile" id="profileButton" type="button">
+          <div class="avatar">S</div><div class="profile-copy"><strong>Student</strong><small>My workspace</small></div><span class="profile-dots">•••</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Toggle menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+        <div class="top-actions"><span class="today-pill"><span class="live-dot"></span> Your productive space</span><button class="icon-button" id="themeButton" aria-label="Toggle color theme">☼</button></div>
+      </header>
+
+      <section class="welcome-row">
+        <div><p class="eyebrow" id="dateLabel">YOUR STUDY SPACE</p><h1>Make today <span>count.</span> <span class="wave">✦</span></h1><p class="welcome-subtitle">A little progress each day adds up to big results. Let's get focused.</p></div>
+        <button class="primary-button" id="addTaskTop"><span>＋</span> Add new task</button>
+      </section>
+
+      <section class="hero-card">
+        <div class="hero-copy"><div class="hero-tag"><span>✦</span> YOUR WEEK, YOUR WAY</div><h2>Turn your goals<br>into <em>progress.</em></h2><p>Organize your subjects, stay on track, and make time for what matters.</p><a class="hero-link" href="#tasks">Plan your next session <span>→</span></a></div>
+        <div class="hero-art" aria-hidden="true"><div class="sun-shape"></div><div class="book book-back"></div><div class="book book-mid"></div><div class="book book-front"><span>FOCUS</span><i>✦</i></div><div class="plant-pot"></div><div class="plant-stem"></div><div class="leaf leaf-one"></div><div class="leaf leaf-two"></div><div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div></div>
+        <div class="hero-number">01 <span> / 04</span></div>
+      </section>
+
+      <section class="stats-grid" aria-label="Study statistics">
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon lavender">✓</span><span class="stat-trend">THIS WEEK</span></div><p class="stat-label">Tasks completed</p><div class="stat-value"><strong id="completedStat">0</strong><span class="stat-unit">tasks</span></div><div class="progress-track"><span id="taskProgress"></span></div><small id="taskProgressText">Let's get started!</small></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon peach">◷</span><span class="stat-trend">YOUR TOTAL</span></div><p class="stat-label">Focus time</p><div class="stat-value"><strong id="focusStat">0</strong><span class="stat-unit">minutes</span></div><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><small>Every minute counts</small></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon mint">◎</span><span class="stat-trend">KEEP GOING</span></div><p class="stat-label">Study streak</p><div class="stat-value"><strong id="streakStat">1</strong><span class="stat-unit">day</span></div><div class="streak-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i><i></i><i></i></div><small>Build your own rhythm</small></article>
+          </section>
+
+      <section class="content-grid">
+        <article class="panel tasks-panel" id="tasks">
+          <div class="panel-heading"><div><p class="eyebrow">STAY ON TRACK</p><h3>Today's tasks <span class="heading-count" id="taskHeadingCount">0</span></h3></div><button class="text-button" id="viewAllTasks">View all <span>→</span></button></div>
+          <div class="task-filters"><button class="filter-chip active" data-filter="all">All tasks</button><button class="filter-chip" data-filter="active">To do</button><button class="filter-chip" data-filter="completed">Completed</button></div>
+          <div id="taskList" class="task-list"><div class="empty-state"><span>✧</span><strong>Your plan starts here</strong><p>Add your first task to get organized.</p></div></div>
+          <button class="add-task-line" id="addTaskBottom">＋ Add a task</button>
+        </article>
+
+        <article class="panel schedule-panel" id="schedule">
+          <div class="panel-heading"><div><p class="eyebrow">MAKE IT HAPPEN</p><h3>Study schedule</h3></div><span class="week-label">YOUR PLAN</span></div>
+          <div class="schedule-list">
+            <div class="schedule-item"><div class="schedule-time">09:00 <small>AM</small></div><div class="schedule-mark purple-mark"></div><div class="schedule-detail"><strong>Deep work session</strong><span>Mathematics · 45 min</span></div><span class="schedule-status done-status">Ready</span></div>
+            <div class="schedule-item"><div class="schedule-time">11:00 <small>AM</small></div><div class="schedule-mark orange-mark"></div><div class="schedule-detail"><strong>Review your notes</strong><span>Web Technology · 30 min</span></div><span class="schedule-status">Planned</span></div>
+            <div class="schedule-item"><div class="schedule-time">02:30 <small>PM</small></div><div class="schedule-mark green-mark"></div><div class="schedule-detail"><strong>Practice questions</strong><span>Programming · 60 min</span></div><span class="schedule-status">Planned</span></div>
+            <div class="schedule-item"><div class="schedule-time">05:00 <small>PM</small></div><div class="schedule-mark blue-mark"></div><div class="schedule-detail"><strong>Quick revision</strong><span>Computer Networks · 20 min</span></div><span class="schedule-status">Planned</span></div>
+          </div>
+          <div class="schedule-note"><span>✦</span><p><strong>Friendly reminder</strong><br>Take a 5-minute break between study sessions.</p></div>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel focus-panel" id="focus"><div class="focus-copy"><p class="eyebrow">FOCUS MODE</p><h3>One thing at a time.</h3><p>Give your next task your full attention.</p><div class="timer-controls"><button class="primary-button" id="startTimer">▶ Start focus</button><button class="secondary-button" id="resetTimer">Reset</button></div></div><div class="timer-ring" id="timerRing"><div><strong id="timerDisplay">25:00</strong><span>MINUTES</span></div></div></article>
+        <article class="panel tip-panel"><div class="tip-top"><span class="tip-icon">✧</span><span class="eyebrow">STUDY TIP OF THE DAY</span></div><h3>Study smarter,<br>not just longer.</h3><p>Try the Pomodoro technique: focus for 25 minutes, then take a 5-minute break. Repeat to keep your mind fresh.</p><div class="tip-footer"><span>✦</span> CONSISTENCY OVER PERFECTION</div></article>
+      </section>
+      <footer>Made for your next big thing <span>✦</span><small>STUDYFLOW · STUDENT STUDY PLANNER</small></footer>
+    </main>
+  </div>
+
+  <dialog id="taskDialog" class="task-dialog">
+    <form id="taskForm" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow">MAKE A PLAN</p><h2>Add a new task</h2></div><button type="button" class="close-dialog" id="closeDialog" aria-label="Close">×</button></div>
+      <label for="taskTitle">Task name</label><input id="taskTitle" name="taskTitle" placeholder="e.g. Revise HTML forms" required maxlength="90">
+      <div class="form-row"><div><label for="taskSubject">Subject</label><select id="taskSubject" name="taskSubject"><option>Web Technology</option><option>Programming</option><option>Mathematics</option><option>Computer Networks</option><option>Other</option></select></div><div><label for="taskPriority">Priority</label><select id="taskPriority" name="taskPriority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></div></div>
+      <label for="taskDue">Due date</label><input type="date" id="taskDue" name="taskDue">
+      <div class="dialog-actions"><button type="button" class="secondary-button" id="cancelDialog">Cancel</button><button type="submit" class="primary-button">Save task <span>→</span></button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
